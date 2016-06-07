@@ -6,17 +6,29 @@
     <base href="/">
   </head>
   <body ng-app="booksApp">
+
+  <div class="navbar" ng-controller="navbarCtrl as ctrl">
+      <a ui-sref="home">Home</a>
+      <a ui-sref="books">Books</a>
+
+      <a ui-sref="login">LOG IN</a>
+      <a ui-sref="signup">SIGN UP</a>
+      <a href="#" ng-click="ctrl.logout()">Logout</a>
+</div>
+
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
 
-
-      <a ui-sref="home">Home</a>
-      <a ui-sref="books">Books</a>
 
     <div ui-view=""></div>
 
     <script type="text/javascript" src="angular/angular.min.js" defer></script>
     <script type="text/javascript" src="angular-ui-router/release/angular-ui-router.min.js" defer></script>
     <script type="text/javascript" src="javascripts/client.js" defer></script>
+    <script src="pdfobject/pdfobject.min.js" defer></script>
+    <script type="text/javascript" src="javascripts/ngPdfObject.js" defer></script>
+
+    <!-- <script src="js/vendor/angular-pdf/dist/angular-pdf.js"></script> -->
+
   </body>
 </html>

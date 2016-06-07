@@ -1,7 +1,11 @@
 <h1>Books</h1>
 
+shawn
+
+
+
 <ul>
   <li ng-repeat="book in ctrl.books">
-    <a ng-click="ctrl.goShowPage(book)">{{ book._id }} : {{ book.title }} - {{ book.year }}</a>
+    <a ng-click="ctrl.goShowPage(book)"> {{ book.title }} - {{ book.year }} - {{ book.pdf }}</a>
   </li>
 </ul>

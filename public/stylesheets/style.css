@@ -6,3 +6,9 @@ body {
 a {
   color: #00B7FF;
 }
+
+.navbar {
+  border: solid 2px;
+  padding: 10px;
+  text-align: right;
+}

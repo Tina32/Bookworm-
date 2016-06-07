@@ -5,12 +5,18 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var passport = require('passport');
+var session = require('express-session');
+var flash = require('connect-flash');
 
+// Routes
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var movies = require('./routes/books');
+var books = require('./routes/books');
 
 var app = express();
+
+// Connect To Database
 mongoose.connect('mongodb://localhost/project4');
 
 // view engine setup
@@ -25,7 +31,25 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
+app.use(session({ secret: 'Bookworm' ,
+                  resave: true ,
+                  saveUnitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
+require('./config/passport/passport')(passport);
+
+
+// This middleware will allow us to use the currentUser in  views and routes.
+app.use(function (req, res, next) {
+  global.currentUser = req.user;
+  next();
+});
+
+
+// Routes
 app.use('/', routes);
 app.use('/users', users);
 app.use('/api/books', books);

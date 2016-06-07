@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- <% include partials/head %> -->
+  </head>
+
+  <body ng-app="booksApp">
+
+    <header>
+      <!-- <% include partials/header %> -->
+    </header>
+
+    <main>
+  <div>
+        <h2>Signup</h2>
+
+      <form ng-submit="ctrl.submit()">
+          <div>First Name:  <input type="text"     ng-model="ctrl.data.firstName"></div>
+          <div>Last Name:   <input type="text"     ng-model="ctrl.data.lastName"></div>
+          <div>Email:       <input type="text"     ng-model="ctrl.data.email"></div>
+          <div>Password:    <input type="password" ng-model="ctrl.data.password"></div>
+          <input type="submit"></div>
+      </form>
+
+   </div>
+
+
+    </main>
+
+    <footer>
+      <!-- <% include partials/footer %> -->
+    </footer>
+  </body>
+</html>
