@@ -4,7 +4,7 @@ var Book = require('../models/book');
 
 function authenticate(req, res, next) {
   if(!req.isAuthenticated()) {
-    res.json('/');
+    res.json('not logged in');
   }
   else {
     next();
@@ -34,7 +34,7 @@ seedBooks();
 
 
 // Index Route
-router.get('/getbooks', authenticate, function(req, res, next) {
+router.get('/', function(req, res, next) {
   Book.find({})
   .then(function(books) {
   res.json(books);
@@ -53,7 +53,7 @@ router.get('/new', authenticate, function(req, res, next) {
 
 
 // SHOW Route
-router.get('/:id', authenticate, function(req, res, next) {
+router.get('/:id', function(req, res, next) {
   Book.findById(req.params.id)
   .then(function(book) {
     if (!book) {

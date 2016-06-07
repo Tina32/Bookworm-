@@ -72,22 +72,31 @@ angular.module('booksApp')
         });
     });
 
-angular.module("booksApp")
-    .controller("booksCtrl", function($http, $state) {
+// angular.module("booksApp")
+//     .controller("booksCtrl", function($http, $state) {
 
-        console.log('shawn you are tripping');
-        var ctrl = this;
+//       var booksurl ="http://localhost:3000/api/books"
 
-        ctrl.displayname ="Big Pimping";
+//         console.log('shawn you are tripping');
+//         var ctrl = this;
 
-        ctrl.mybooks = ["Tale of two cities","Citizen Kane","Clean Coder"];
 
-        ctrl.myFunc = function() {
-            ctrl.myTxt = "You clicked submit!";
-        };
 
-        ctrl.book = {};
-    });
+
+//         //use http get to pull books
+
+//         //set data to ctrl.books = reponse.data.books
+//         $http.get(booksurl)
+//         .then(function(response){
+//           ctrl.books = response.data;
+//         });
+
+//         ctrl.myFunc = function() {
+//             ctrl.myTxt = "You clicked submit!";
+//         };
+
+//         ctrl.book = {};
+//     });
 
 angular.module("booksApp")
     .controller("signupCtrl", function($http, $state) {
