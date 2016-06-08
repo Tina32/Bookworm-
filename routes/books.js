@@ -2,19 +2,20 @@ var express = require('express');
 var router = express.Router();
 var Book = require('../models/book');
 
-function authenticate(req, res, next) {
-  if(!req.isAuthenticated()) {
-    res.json('not logged in');
-  }
-  else {
-    next();
-  }
-}
+// function authenticate(req, res, next) {
+//   if(!req.isAuthenticated()) {
+//     res.json('not logged in');
+//   }
+//   else {
+//     next();
+//   }
+// }
 
 function seedBooks() {
  var books = [
    { title: 'MEAN Machine', year: 2016 , pdf: ""},
-   { title: 'The Clean Coder', year: 2015 , pdf: ""}
+   { title: 'The Clean Coder', year: 2011 , pdf: ""},
+   { title: 'The Help', year: 2014, pdf: ""}
  ];
 
  Book.find({}).remove()
@@ -41,38 +42,43 @@ router.get('/', function(req, res, next) {
   });
 });
 
-// NEW
-router.get('/new', authenticate, function(req, res, next) {
-    var item = {
-        title: '',
-        year: '',
-        pdf: ''
-    };
-    res.json('items/new', { item: item });
-});
+//NEW
+// router.get('/new', function(req, res, next) {
+//     var item = {
+//         title: '',
+//         year: '',
+//         pdf: ''
+//     };
+//     res.json('items/new', { item: item });
+// });
 
 
 // SHOW Route
 router.get('/:id', function(req, res, next) {
   Book.findById(req.params.id)
+
   .then(function(book) {
-    if (!book) {
-      res.status(404).json( { error: 'Not found' } );
-    }
-    res.json(book);
+    console.log(book);
+    // if (!book) {
+    //   res.status(404).json( { error: 'Not found' } );
+    // }
+   res.json(book);
+
   })
   .catch(function(err) {
     return next(err);
   });
 
   // CREATE
-router.post('/', authenticate, function(req, res, next) {
-    var item = {
+router.post('/', function(req, res, next) {
+
+    var book = {
         title: req.body.title,
-        year: req.body.year
+        year: req.body.year,
+        pdf: req.body.pdf
     };
-    currentUser.books.push(book);
-    currentUser.save()
+    book.push(book);
+    book.save()
         .then(function() {
             res.json('/books');
         }, function(err) {
@@ -81,14 +87,14 @@ router.post('/', authenticate, function(req, res, next) {
 });
 
 // EDIT
-router.get('/:id/edit', authenticate, function(req, res, next) {
+router.get('/:id/edit', function(req, res, next) {
     var book = currentUser.books.id(req.params.id);
     if(!book) return next(makeError(res, 'Document not found', 404));
     res.json('books/edit', { book: book });
 });
 
 // UPDATE
-router.put('/:id', authenticate, function(req, res, next) {
+router.put('/:id', function(req, res, next) {
     var book = currentUser.books.id(req.params.id);
     if(!book) return next(makeError(res, 'Document not found', 404));
     else{
@@ -104,7 +110,7 @@ router.put('/:id', authenticate, function(req, res, next) {
 });
 
 // DESTROY
-router.delete('/:id', authenticate, function(req, res, next) {
+router.delete('/:id', function(req, res, next) {
     var book = currentUser.books.id(req.params.id);
     if (!item) return next(makeError(res, 'Document not found', 404));
     var index = currentUser.books.indexOf(book);

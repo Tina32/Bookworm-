@@ -12,11 +12,12 @@
 
     <main>
   <div>
-        <h2>Login</h2>
+        <h2>Add New Book</h2>
 
       <form ng-submit="ctrl.submit()">
-          <div>Email:       <input type="text"     ng-model="ctrl.data.email"></div>
-          <div>Password:    <input type="password" ng-model="ctrl.data.password"></div>
+          <div>Title:  <input type="text"     ng-model="ctrl.book.title"></div>
+          <div>Year:   <input type="text"     ng-model="ctrl.book.year"></div>
+          <div>PDF:    <input type="text"     ng-model="ctrl.book.pdf"></div>
           <div><input type="submit"></div>
       </form>
 
@@ -30,3 +31,8 @@
     </footer>
   </body>
 </html>
+
+
+
+
+<!-- {{ctrl.displayname}} -->

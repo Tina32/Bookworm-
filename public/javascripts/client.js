@@ -17,6 +17,7 @@ angular.module('booksApp')
                 controller: "signupCtrl",
                 controllerAs: "ctrl"
             })
+
             .state('login', {
                 url: "/login",
                 templateUrl: "views/login.html",
@@ -27,6 +28,12 @@ angular.module('booksApp')
                 url: "/books",
                 templateUrl: "views/books.html",
                 controller: "booksCtrl",
+                controllerAs: "ctrl"
+            })
+            .state('newbook', {
+                url: "/books/new",
+                templateUrl: "views/newbook.html",
+                controller: "newbookCtrl",
                 controllerAs: "ctrl"
             })
             .state('books-show', {
@@ -70,6 +77,32 @@ angular.module('booksApp')
         $http.get('/api/books/' + $stateParams.bookId).then(function(response) {
             ctrl.book = response.data;
         });
+    });
+
+    //new book controller
+angular.module('booksApp')
+    .controller('newbookCtrl', function($http, $stateParams) {
+        console.log('creating a new book');
+
+        var ctrl = this;
+        ctrl.book = {};
+
+        // ctrl.displayname ="Shawn's new book"
+
+        ctrl.book = {
+            title: ctrl.book.title,
+            year: ctrl.book.year,
+            pdf: ''
+        };
+
+        ctrl.submit = function() {
+            console.log('you pressed submit.');
+            var data = ctrl.book;
+            $http.post('http://localhost:3000/api/books/', data).then(function(response) {
+                console.log('newbook response:', response);
+                $state.go('/books/new');
+            });
+        };
     });
 
 // angular.module("booksApp")
