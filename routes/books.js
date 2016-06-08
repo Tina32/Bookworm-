@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var Book = require('../models/book');
 
+console.log('loading routes/books');
+
 // function authenticate(req, res, next) {
 //   if(!req.isAuthenticated()) {
 //     res.json('not logged in');
@@ -12,16 +14,16 @@ var Book = require('../models/book');
 // }
 
 function seedBooks() {
- var books = [
-   { title: 'MEAN Machine', year: 2016 , pdf: ""},
-   { title: 'The Clean Coder', year: 2011 , pdf: ""},
-   { title: 'The Help', year: 2014, pdf: ""}
- ];
+  var books = [
+    { title: 'MEAN Machine', year: 2016 , pdf: ""},
+    { title: 'The Clean Coder', year: 2011 , pdf: ""},
+    { title: 'The Help', year: 2014, pdf: ""}
+  ];
 
- Book.find({}).remove()
- .then(function() {
-   return Book.create(books);
- })
+  Book.find({}).remove()
+  .then(function() {
+    return Book.create(books);
+  })
  .then(function() {
    return Book.find({});
  })
@@ -36,9 +38,10 @@ seedBooks();
 
 // Index Route
 router.get('/', function(req, res, next) {
+  console.log('INDEX of Books');
   Book.find({})
   .then(function(books) {
-  res.json(books);
+    res.json(books);
   });
 });
 
@@ -68,22 +71,24 @@ router.get('/:id', function(req, res, next) {
   .catch(function(err) {
     return next(err);
   });
+});
 
   // CREATE
 router.post('/', function(req, res, next) {
+  console.log('books POST');
 
-    var book = {
-        title: req.body.title,
-        year: req.body.year,
-        pdf: req.body.pdf
-    };
-    book.push(book);
-    book.save()
-        .then(function() {
-            res.json('/books');
-        }, function(err) {
-            return next(err);
-        });
+  var book = {
+      title: req.body.title,
+      year: req.body.year,
+      pdf: req.body.pdf
+  };
+  Book.create(book)
+      .then(function(saved) {
+        console.log('saved book:', saved);
+          res.json(saved);
+      }, function(err) {
+          return next(err);
+      });
 });
 
 // EDIT
@@ -121,8 +126,6 @@ router.delete('/:id', function(req, res, next) {
         }, function(err) {
             return next(err);
         });
-});
-
 });
 
 module.exports = router;

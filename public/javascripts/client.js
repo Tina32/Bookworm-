@@ -81,7 +81,7 @@ angular.module('booksApp')
 
     //new book controller
 angular.module('booksApp')
-    .controller('newbookCtrl', function($http, $stateParams) {
+    .controller('newbookCtrl', function($http, $stateParams, $state) {
         console.log('creating a new book');
 
         var ctrl = this;
@@ -98,9 +98,12 @@ angular.module('booksApp')
         ctrl.submit = function() {
             console.log('you pressed submit.');
             var data = ctrl.book;
-            $http.post('http://localhost:3000/api/books/', data).then(function(response) {
+            $http.post('/api/books', data).then(function(response) {
                 console.log('newbook response:', response);
-                $state.go('/books/new');
+                $state.go('books');
+            }, function(err) {
+              console.log('ERROR:', err);
+              alert('ERROR: ' + err.status + ' : ' + err.data.message);
             });
         };
     });
