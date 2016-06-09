@@ -17,7 +17,10 @@ var books = require('./routes/books');
 var app = express();
 
 // Connect To Database
-mongoose.connect('mongodb://localhost/project4');
+
+var mongoUri = process.env.MONGODB_URI || 'mongodb://localhost/project4'
+
+mongoose.connect(mongoUri);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
