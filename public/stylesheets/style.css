@@ -13,16 +13,23 @@ h1 {
 }
 
 
-.navbar {
+/*.navbar {
   border: solid 2px;
   padding: 15px;
   text-align: right;
   font-size: 18px;
   background-color: green;
+}*/
+
+/*.fa-github-square:before {
+  content: "\f082";
 }
 
+.fa-github-square:before {
+  content: "\f092";
+}
 
-
+*/
 
 /*#portfolio {
     position: absolute;
