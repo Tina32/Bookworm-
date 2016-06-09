@@ -1,34 +1,48 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- <% include partials/head %> -->
-  </head>
+</head>
 
-  <body ng-app="booksApp">
-
+<body ng-app="booksApp">
     <header>
-      <!-- <% include partials/header %> -->
+        <!-- <% include partials/header %> -->
     </header>
-
     <main>
-  <div>
-        <h2>Signup</h2>
-
-      <form ng-submit="ctrl.submit()">
-          <div>First Name:  <input type="text"     ng-model="ctrl.data.firstName"></div>
-          <div>Last Name:   <input type="text"     ng-model="ctrl.data.lastName"></div>
-          <div>Email:       <input type="text"     ng-model="ctrl.data.email"></div>
-          <div>Password:    <input type="password" ng-model="ctrl.data.password"></div>
-          <div><input type="submit"></div>
-      </form>
-
-   </div>
-
-
+        <section id="portfolio">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2>Sign Up</h2>
+                        <div class="signup">
+                            <form ng-submit="ctrl.submit()">
+                                <div>First Name:
+                                    <input type="text" ng-model="ctrl.data.firstName">
+                                </div>
+                                <div>Last Name:
+                                    <input type="text" ng-model="ctrl.data.lastName">
+                                </div>
+                                <div>Email:
+                                    <input type="text" ng-model="ctrl.data.email">
+                                </div>
+                                <div>Password:
+                                    <input type="password" ng-model="ctrl.data.password">
+                                </div>
+                                <div>
+                                    <input type="submit">
+                                </div>
+                                <hr class="star-primary">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-
     <footer>
-      <!-- <% include partials/footer %> -->
+        <!-- <% include partials/footer %> -->
     </footer>
-  </body>
+</body>
+
 </html>

@@ -92,7 +92,8 @@ angular.module('booksApp')
         ctrl.book = {
             title: ctrl.book.title,
             year: ctrl.book.year,
-            pdf: ''
+            pdf: ctrl.book.pdf,
+            img: ctrl.book.img
         };
 
         ctrl.submit = function() {
@@ -107,32 +108,6 @@ angular.module('booksApp')
             });
         };
     });
-
-// angular.module("booksApp")
-//     .controller("booksCtrl", function($http, $state) {
-
-//       var booksurl ="http://localhost:3000/api/books"
-
-//         console.log('shawn you are tripping');
-//         var ctrl = this;
-
-
-
-
-//         //use http get to pull books
-
-//         //set data to ctrl.books = reponse.data.books
-//         $http.get(booksurl)
-//         .then(function(response){
-//           ctrl.books = response.data;
-//         });
-
-//         ctrl.myFunc = function() {
-//             ctrl.myTxt = "You clicked submit!";
-//         };
-
-//         ctrl.book = {};
-//     });
 
 angular.module("booksApp")
     .controller("signupCtrl", function($http, $state) {

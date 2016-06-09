@@ -1,38 +1,49 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- <% include partials/head %> -->
-  </head>
+</head>
 
-  <body ng-app="booksApp">
-
+<body ng-app="booksApp">
     <header>
-      <!-- <% include partials/header %> -->
+        <!-- <% include partials/header %> -->
     </header>
-
     <main>
-  <div>
-        <h2>Add New Book</h2>
-
-      <form ng-submit="ctrl.submit()">
-          <div>Title:  <input type="text"     ng-model="ctrl.book.title"></div>
-          <div>Year:   <input type="text"     ng-model="ctrl.book.year"></div>
-          <div>PDF:    <input type="text"     ng-model="ctrl.book.pdf"></div>
-          <div><input type="submit"></div>
-      </form>
-
-   </div>
-
-
+        <section id="portfolio">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2>Add New Book</h2>
+                        <div class="newbook">
+                            <form ng-submit="ctrl.submit()">
+                                <div>Title:
+                                    <input type="text" ng-model="ctrl.book.title">
+                                </div>
+                                <div>Year:
+                                    <input type="text" ng-model="ctrl.book.year">
+                                </div>
+                                <div>PDF URL:
+                                    <input type="url" ng-model="ctrl.book.pdf">
+                                </div>
+                                <div>Image:
+                                    <input type="url" ng-model="ctrl.book.img">
+                                </div>
+                                <div>
+                                    <input type="submit">
+                                </div>
+                            </form>
+                        </div>
+                        <hr class="star-primary">
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-
     <footer>
-      <!-- <% include partials/footer %> -->
+        <!-- <% include partials/footer %> -->
     </footer>
-  </body>
+</body>
+
 </html>
-
-
-
-
 <!-- {{ctrl.displayname}} -->

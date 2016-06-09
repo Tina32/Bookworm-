@@ -15,9 +15,9 @@ console.log('loading routes/books');
 
 function seedBooks() {
   var books = [
-    { title: 'MEAN Machine', year: 2016 , pdf: ""},
-    { title: 'The Clean Coder', year: 2011 , pdf: ""},
-    { title: 'The Help', year: 2014, pdf: ""}
+    { title: 'Getting Mean', year: 2016 , pdf: "http://salesmanagement.org/web/uploads/pdf/af4610022ea794e97eee259432519a92.pdf", img: "img/Getting MEAN.jpg"},
+    { title: 'The Clean Coder', year: 2011 , pdf: "http://ptgmedia.pearsoncmg.com/images/9780137081073/samplepages/0137081073.pdf", img:"img/Clean Coder.jpg"},
+    { title: 'The Help', year: 2014, pdf: "https://mrmarossi.files.wordpress.com/2014/07/the-help.pdf", img: "img/The Help.jpg"}
   ];
 
   Book.find({}).remove()

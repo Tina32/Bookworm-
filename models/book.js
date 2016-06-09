@@ -6,7 +6,8 @@ var ObjectId = Schema.ObjectId;
 var BookSchema = new mongoose.Schema({
   title: { type: String, required: true },
   year:  { type: Number, required: true },
-  pdf:   { type: String, required: false }
+  pdf:   { type: String, required: false },
+  img:   { type: String, required: false}
 }, { timestamps: true } );
 
 // Make model avail for use
