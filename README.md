@@ -25,12 +25,11 @@ Trello Board: <https://trello.com/b/3ehrpbao/bookworm>
 * Heroku
 * Trello
 
-##Wire Frames
-put wire frames here
 
 ##Major Hurdles
 * Passport/Authentication: I had trouble authenticating user login credentails using passport.
 * Heroku: App would not show PDF on Heroku 
+
 
 ##Future Developments
 
