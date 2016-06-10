@@ -13,34 +13,6 @@ h1 {
 }
 
 
-/*.navbar {
-  border: solid 2px;
-  padding: 15px;
-  text-align: right;
-  font-size: 18px;
-  background-color: green;
-}*/
-
-/*.fa-github-square:before {
-  content: "\f082";
+.newbook {
+  text-align: center;
 }
-
-.fa-github-square:before {
-  content: "\f092";
-}
-
-*/
-
-/*#portfolio {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    background: rgba(24,188,156,.9);
-    -webkit-transition: all ease .5s;
-    -moz-transition: all ease .5s;
-    transition: all ease .5s;*/
-/*}*/
-
-
-
